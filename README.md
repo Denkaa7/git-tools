@@ -1,17 +1,14 @@
 1. Найдите полный хеш и комментарий коммита, хеш которого начинается на aefea.
-   - $ git show aefea
-   - commit aefead2207ef7e2aa5dc81a34aedf0cad4c32545
-   - Update CHANGELOG.md
+   - Ответ получен из вывода команды `git show aefea`. Полный хэш aefead2207ef7e2aa5dc81a34aedf0cad4c32545, комментарий: Update CHANGELOG.md
 
 2. Ответьте на вопросы.
    - Какому тегу соответствует коммит 85024d3
-     - $ git show 85024d3
-     - tag: v0.12.23
+     - В выводе команды `git show 85024d3` находим тег `tag: v0.12.23`
    - Сколько родителей у коммита b8d720? Напишите их хеши.
-     - $ git show --no-patch --pretty=%P b8d720
+     - С помощью команды `git show --no-patch --pretty=%P b8d720` получаем 2 хэша
      - 56cd7859e05c36c06b56d013b55a252d0bb7e158 9ea88f22fc6269854151c571162c5bcf958bee2b  
    - Перечислите хеши и комментарии всех коммитов, которые были сделаны между тегами v0.12.23 и v0.12.24.
-     - $ git log --oneline v0.12.23..v0.12.24 
+     - С помощью следующей команды `git log --oneline v0.12.23..v0.12.24` получаем следующие хэши:  
      - 33ff1c03bb (tag: v0.12.24) v0.12.24
      - b14b74c493 [Website] vmc provider links
      - 3f235065b9 Update CHANGELOG.md
@@ -22,17 +19,16 @@
      - 4b6d06cc5d Update CHANGELOG.md
      - dd01a35078 Update CHANGELOG.md
      - 225466bc3e Cleanup after v0.12.23 release
-  - Найдите коммит, в котором была создана функция func providerSource, её определение в коде выглядит так: func providerSource(...) (вместо троеточия перечислены аргументы).
-    - git log -S 'func providerSource' --pretty=oneline --reverse 
-    - 8c928e83589d90a031f811fae52a81be7153e82f main: Consult local directories as potential mirrors of providers
+  - Найдите коммит, в котором была создана функция func providerSource
+    - С помощью команды `git log -S 'func providerSource' --pretty=oneline --reverse` берем первый коммит, в котором как раз и была создана функция
     - 5af1e6234ab6da412fb8637393c5a17a1b293663 main: Honor explicit provider_installation CLI config when present
   - Найдите все коммиты, в которых была изменена функция globalPluginDirs.
-    - $ git log -G 'globalPluginDirs' --oneline
+    - $ С помощью команды `git log -G 'globalPluginDirs' --oneline` получаем следующие коммиты
     - 7c4aeac5f3 stacks: load credentials from config file on startup (#35952)
     - 22a2580e93 main: Use the new cliconfig package credentials source
     - 35a058fb3d main: configure credentials from the CLI config file
     - c0b1761096 prevent log output during init
     - 8364383c35 Push plugin discovery down into command package
   - Кто автор функции synchronizedWriters?
-    - $ git log -S 'func synchronizedWriters' --pretty=fuller
-    - В первом коммите находим  `Author:  Martin Atkins <mart@degeneration.co.uk>`
+    - Чтобы найти автора нужно вывести все коммиты, в которых происходило изменение данной функции `git log -S 'func synchronizedWriters' --pretty=fuller`
+    - В первом коммите как раз данная функция и была создана  `Author:  Martin Atkins <mart@degeneration.co.uk>`
